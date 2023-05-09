@@ -14,7 +14,7 @@ defmodule LightAppWeb.LightLive do
 
     <div class="absolute w-screen h-screen -z-[1]" style={"background-color:#{@lightColor}; opacity: #{@brightness/100}"}/>
 
-    <div class="absolute flex flex-col top-16 left-10">
+    <div class="absolute flex flex-col border border-2 border-[#000000] p-3 rounded-lg top-16 left-10">
       <p class="mb-2">Pick a color!</p>
 
       <div class="flex flex-col gap-3">
