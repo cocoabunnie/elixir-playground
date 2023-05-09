@@ -5,13 +5,23 @@ defmodule LightAppWeb.LightLive do
   #SOCKET HANDLES STATE
   def mount(_params, _session, lightStates) do
     IO.inspect(lightStates)
-    {:ok, assign(lightStates, brightness: 10)}
+    {:ok, assign(lightStates, brightness: 10, lightColor: "#FFFF00")}
   end
 
-  # What shows on the page
   def render(assigns) do
     ~H"""
-    <div class="w-full h-full gap-5 justify-center items-center">
+    <div class={"w-screen h-screen gap-5 flex justify-center items-center"} >
+
+    <div class="absolute w-screen h-screen -z-[1]" style={"background-color:#{@lightColor}; opacity: #{@brightness/100}"}/>
+
+    <div class="absolute flex flex-col top-16 left-10">
+      <p>Pick a color!</p>
+      <button phx-click="changeColorToYellow">Yellow</button>
+      <button phx-click="changeColorToPink">Pink</button>
+      <button phx-click="changeColorToBlue">Blue</button>
+      <button phx-click="changeColorToPurple">Purple</button>
+    </div>
+
     <div class="w-fit h-fit flex flex-col items-center justify-center">
         <p class="text-[40px]">Welcome to my Light Playground 😄</p>
 
@@ -35,9 +45,6 @@ defmodule LightAppWeb.LightLive do
 
 
     </div>
-
-
-
     """
   end
 
@@ -79,6 +86,26 @@ defmodule LightAppWeb.LightLive do
         currBrightness - 10
       end
     end)
+    {:noreply, lightStates}
+  end
+
+  def handle_event("changeColorToYellow", _, lightStates) do
+    lightStates = assign(lightStates, lightColor: "#FFFF00")
+    {:noreply, lightStates}
+  end
+
+  def handle_event("changeColorToPink", _, lightStates) do
+    lightStates = assign(lightStates, lightColor: "#FFC0CB")
+    {:noreply, lightStates}
+  end
+
+  def handle_event("changeColorToBlue", _, lightStates) do
+    lightStates = assign(lightStates, lightColor: "#0000FF")
+    {:noreply, lightStates}
+  end
+
+  def handle_event("changeColorToPurple", _, lightStates) do
+    lightStates = assign(lightStates, lightColor: "#A020F0")
     {:noreply, lightStates}
   end
 end
