@@ -15,11 +15,15 @@ defmodule LightAppWeb.LightLive do
     <div class="absolute w-screen h-screen -z-[1]" style={"background-color:#{@lightColor}; opacity: #{@brightness/100}"}/>
 
     <div class="absolute flex flex-col top-16 left-10">
-      <p>Pick a color!</p>
-      <button phx-click="changeColorToYellow">Yellow</button>
-      <button phx-click="changeColorToPink">Pink</button>
-      <button phx-click="changeColorToBlue">Blue</button>
-      <button phx-click="changeColorToPurple">Purple</button>
+      <p class="mb-2">Pick a color!</p>
+
+      <div class="flex flex-col gap-3">
+        <button class="hover:animate-bounce" phx-click="changeColorToYellow">Yellow</button>
+        <button class="hover:animate-bounce" phx-click="changeColorToPink">Pink</button>
+        <button class="hover:animate-bounce" phx-click="changeColorToBlue">Blue</button>
+        <button class="hover:animate-bounce" phx-click="changeColorToPurple">Purple</button>
+      </div>
+
     </div>
 
     <div class="w-fit h-fit flex flex-col items-center justify-center">
@@ -34,10 +38,10 @@ defmodule LightAppWeb.LightLive do
           </div>
 
           <div>
-            <button class="border border-2 border-[#000000] p-3 rounded-lg hover:bg-[#808080]" phx-click="on">☀️ Light on</button>
-            <button class="border border-2 border-[#000000] p-3 rounded-lg hover:bg-[#808080]" phx-click="off">🌙 Light off</button>
-            <button class="border border-2 border-[#000000] p-3 rounded-lg hover:bg-[#808080]" phx-click="increase_by_10">+10 %</button>
-            <button class="border border-2 border-[#000000] p-3 rounded-lg hover:bg-[#808080]" phx-click="decrease_by_10">-10 %</button>
+            <button class="bg-[#ffffff] border border-2 border-[#000000] p-3 rounded-lg hover:bg-[#808080]" phx-click="on">☀️ Light on</button>
+            <button class="bg-[#ffffff] border border-2 border-[#000000] p-3 rounded-lg hover:bg-[#808080]" phx-click="off">🌙 Light off</button>
+            <button class="bg-[#ffffff] border border-2 border-[#000000] p-3 rounded-lg hover:bg-[#808080]" phx-click="increase_by_10">+10 %</button>
+            <button class="bg-[#ffffff] border border-2 border-[#000000] p-3 rounded-lg hover:bg-[#808080]" phx-click="decrease_by_10">-10 %</button>
           </div>
         </div>
 
