@@ -20,6 +20,7 @@ defmodule LightAppWeb.Router do
     get "/", PageController, :home
     live "/light", LightLive
     live "/counter", CounterPage
+    live "/dictionary", DictionaryPage
   end
 
   # Other scopes may use custom stacks.
