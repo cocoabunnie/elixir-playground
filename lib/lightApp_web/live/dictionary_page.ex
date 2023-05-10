@@ -59,17 +59,30 @@ defmodule LightAppWeb.DictionaryPage do
     definition = assigns.definition
 
     ~H"""
-    <p>What word do you want to learn more about?</p>
-    <input
-      class="border border-2 border-[#000000]"
-      phx-debounce="500"
-      phx-keyup="update_word"
-      value={@word}
-    />
-    <button phx-click="request" phx-value-word={@word}>Submit</button>
-    <p>
-      <%= @definition %>
-    </p>
+    <div class="flex flex-col items-center h-screen w-screen">
+      <div class="flex flex-col w-fit h-fit items-center justify-center mt-[40px] gap-4">
+        <p class="font-bold text-[40px] pb-5">The Dictionary</p>
+        <p>Type in a word to get the definition!</p>
+        <div class="flex flex-row">
+          <input
+            class="border border-2 border-[#000000] border-r-0 rounded-l-lg px-4"
+            phx-debounce="500"
+            phx-keyup="update_word"
+            value={@word}
+          />
+          <button
+            class="border border-2 border-[#000000] border-l-0 p-2 rounded-r-lg hover:bg-[#808080]"
+            phx-click="request"
+            phx-value-word={@word}
+          >
+            Submit
+          </button>
+        </div>
+        <p>
+          <%= @definition %>
+        </p>
+      </div>
+    </div>
     """
   end
 
