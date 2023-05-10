@@ -21,6 +21,7 @@ defmodule LightAppWeb.Router do
     live "/light", LightLive
     live "/counter", CounterPage
     live "/dictionary", DictionaryPage
+    live "/todo", ToDoPage
   end
 
   # Other scopes may use custom stacks.
