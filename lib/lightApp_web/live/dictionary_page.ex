@@ -7,8 +7,6 @@ defmodule LightAppWeb.DictionaryPage do
   end
 
   def make_request(url) do
-    IO.puts("Request URL: #{url}")
-
     case HTTPoison.get(url) do
       {:ok, %{status_code: 200, body: body}} ->
         # Parse the API response
@@ -99,7 +97,7 @@ defmodule LightAppWeb.DictionaryPage do
         {:noreply, assign(socket, definition: definition)}
 
       {:error, _} ->
-        {:noreply, socket}
+        {:noreply, assign(socket, definition: "Uh oh... couldn't find this word")}
     end
   end
 end
