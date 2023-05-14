@@ -89,10 +89,9 @@ defmodule LightAppWeb.DictionaryPage do
   end
 
   def handle_event("request", %{"word" => word}, socket) do
-    url = "https://api.dictionaryapi.dev/api/v2/entries/en/"
-    IO.puts("~~~~~~~~~~~~~~~ TESTING: #{url}#{word}")
+    url = "https://api.dictionaryapi.dev/api/v2/entries/en/#{word}"
 
-    case make_request("#{url}#{word}") do
+    case make_request(url) do
       {:ok, definition} ->
         {:noreply, assign(socket, definition: definition)}
 
