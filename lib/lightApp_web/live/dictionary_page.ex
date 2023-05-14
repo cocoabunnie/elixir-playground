@@ -76,7 +76,7 @@ defmodule LightAppWeb.DictionaryPage do
             Submit
           </button>
         </div>
-        <p>
+        <p class="max-w-[calc(50vw)]">
           <%= @definition %>
         </p>
       </div>
